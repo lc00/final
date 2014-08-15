@@ -1,24 +1,8 @@
-#sign-in {
-	margin-right: 500px;
-}
-
-#user-name{
-	padding:10px;
-	text-align:right;
-	background-color:#e5eecc;
-	border:solid 1px #c3c3c3;
-}
-
 #log-out{
 	display: none;
 	float: right;	
 }
 
-a:hover{
-	/*color: orange;*/
-}
-
-.center {
-	margin: 0 auto;
-	width: 800px;
+.margin-top{
+	margin-top: 70px;
 }
