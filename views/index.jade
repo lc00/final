@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	//- if user signed in, display 'username' @ top right corner
+	if user
+		div#user-name #{user.username}
+		div#log-out 
+			a(href="/auth/logout") Log Out
+	else
+		//- else display sign in link @ top right corner
+		div: a(id="sign-in" href="/auth/login") Sign In
+
+	h2(class="center") Billiards/Pool Training Notebook
+
+	p(class="center") Take your game to the next level!
+		| Sign in to add shots and use them as references for your practice.
