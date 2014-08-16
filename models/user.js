@@ -23,27 +23,32 @@ var userSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  tablelist: [
-    {
-      id: String,
-      archived: Boolean,
-      notes: String,
-      symbol: String,  //using String as a placeholder as null for now to avoid error mssg
-      title: String,
-      balls: [
-        {
-          ball: {
-            id: String,
-            x: Number,
-            y: Number
-          }
-        }
-      ]
+  tablelist: {
+    type: Array,
+    default: []
+  },
+    // {
+    //   id: String,
+    //   archived: Boolean,
+    //   notes: String,
+    //   symbol: String,  //using String as a placeholder as null for now to avoid error mssg
+    //   title: String,
+    //   level: Number, //Number is placeholder as null for now to avoid error mssg
+    //   category: String, //using String as a placeholder as null for now to avoid error mssg
+    //   stat: Number,
+    //   balls: [
+    //     {
+    //       ball: {
+    //         id: String,
+    //         x: Number,
+    //         y: Number
+            
+    //       }
+    //     }
+    //   ]
 
-    }
-  ],
-  skilllevel: Number, //Number is placeholder as null for now to avoid error mssg
-  category: String, //using String as a placeholder as null for now to avoid error mssg
+    // }
+  
   stat: Number //using Number as a placeholder as null for now to avoid error mssg
 });
 

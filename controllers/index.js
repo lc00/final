@@ -1,3 +1,6 @@
+// We also will be using our User model
+var User = require('../models/user');
+
 // Simple index controller
 var indexController = {
 
@@ -11,7 +14,29 @@ var indexController = {
     res.render('index', {
       user: req.user
     });
+  }, 
+  newBall: function(req, res){
+
+    // new ball information
+    var ball = { top: req.body.top,
+                left: req.body.left
+                };
+
+    User.findOne({username: 'qq'}, function(error, result){
+      result.tablelist.push({ball:ball});
+      result.save();
+    })
+
+
+
+
+    res.send({ 
+      ball: ball
+    })
+
+
   }
+
 };
 
 // Export our index control

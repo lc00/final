@@ -68,6 +68,17 @@ app.get('/auth/logout', authenticationController.logout);
 
 // Our get request for viewing the main page
 app.get('/', indexController.index);
+
+
+// billiards balls
+app.post('/newBall', indexController.newBall);
+
+
+
+
+
+
+
 // ***** IMPORTANT ***** //
 // By including this middleware (defined in our config/passport.js module.exports),
 // We can prevent unauthorized access to any route handler defined after this call

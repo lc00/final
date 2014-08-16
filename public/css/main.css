@@ -6,3 +6,20 @@
 .margin-top{
 	margin-top: 70px;
 }
+
+.table{
+	background-color: green;
+	width: 200px;
+	height: 400px;
+	position: relative;
+}
+
+.circle{
+	background-color: orange;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	position: absolute;
+	top: 30px;
+	left: 50px;
+}
