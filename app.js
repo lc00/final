@@ -71,7 +71,7 @@ app.get('/', indexController.index);
 
 
 // billiards balls
-app.post('/newBall', indexController.newBall);
+app.post('/newTable', indexController.newTable);
 
 
 

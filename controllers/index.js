@@ -15,24 +15,29 @@ var indexController = {
       user: req.user
     });
   }, 
-  newBall: function(req, res){
-
+  newTable: function(req, res){
+    var username = req.body.user;
+    var title = req.body.title;
     // new ball information
-    var ball = { top: req.body.top,
-                left: req.body.left
-                };
+    // var ball = { 
+    //   type: req.body.circle.typeOfBall,
+    //   top: req.body.circle.top,
+    //   left: req.body.circle.left
+    // };
 
-    User.findOne({username: 'qq'}, function(error, result){
-      result.tablelist.push({ball:ball});
+    User.findOne({username: username}, function(error, result){
+      // result.tablelist.table.push({balls:ball});
+      // result.tablelist.push({title: title, ball:[ {top: 30, left: 60} ] })
+      // result.tablelist.push({table: ball})
+      result.tablelist.push({title: title, balls:[ {top: 10, left: 10} ] })
+
       result.save();
     })
 
 
-
-
     res.send({ 
-      ball: ball
-    })
+      result: title
+    });
 
 
   }

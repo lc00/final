@@ -8,6 +8,38 @@ var bcrypt = require('bcrypt');
  * given, the document is not inserted. Unique will prevent
  * saving if a duplicate entry is found.
  */
+// var balls = mongoose.Schema({
+  
+//     // id: String,
+//     x: Number,
+//     y: Number
+  
+// })  
+
+// var table = mongoose.Schema({
+//   id: String,
+//   archived: Boolean,
+//   notes: String,
+//   symbol: String,  //using String as a placeholder as null for now to avoid error mssg
+//   title: String,
+//   level: Number, //Number is placeholder as null for now to avoid error mssg
+//   category: String, //using String as a placeholder as null for now to avoid error mssg
+//   stat: Number,
+//   ball: Array
+
+  // [
+  //   {
+  //     ball: {
+  //       id: String,
+  //       x: Number,
+  //       y: Number
+      
+  //     }
+  //   }
+  // ]
+
+// })
+
 var userSchema = mongoose.Schema({
   username: {
     type: String,
@@ -23,10 +55,7 @@ var userSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  tablelist: {
-    type: Array,
-    default: []
-  },
+  tablelist: Array,
     // {
     //   id: String,
     //   archived: Boolean,
