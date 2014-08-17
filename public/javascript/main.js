@@ -4,22 +4,29 @@ $(function(){
 	});
 	$('#table-info').submit(function(e){
 		e.preventDefault();
-		
-		var user = $('#user-name').text();
 
+		var user = $('#user-name').text();
 		var title = $('#title').val();
 
-		var type = $('#type-of-ball').val();
-
-
-		// var circle = {
-		// 	typeOfBall: type,
-		// 	top: this.offsetTop,
-		// 	left: this.offsetLeft
-		// };
-		$.post('/newTable', {user: user, title:title, typeOfBall:type}, function(result){
+		var arrayOfBalls = [];
+		var ballsOnTable = $('.circle');
+		$.each(ballsOnTable, function(index, el){
+			var el = $(el);
+			arrayOfBalls.push({ 
+				'typeOfBall': el.data('type'),
+				"location": {
+					'left': el.context.offsetLeft,
+					'top': el.context.offsetTop
+				}
+			});
+		});
+		$.post('/newTable', {
+			user: user, 
+			title:title, 
+			array: JSON.stringify(arrayOfBalls) 
+		}, function(result){
 			console.log(result)
-		})
+		});
 	})
 
 });

@@ -18,30 +18,18 @@ var indexController = {
   newTable: function(req, res){
     var username = req.body.user;
     var title = req.body.title;
-    // new ball information
-    // var ball = { 
-    //   type: req.body.circle.typeOfBall,
-    //   top: req.body.circle.top,
-    //   left: req.body.circle.left
-    // };
+    var array = JSON.parse(req.body.array);
 
     User.findOne({username: username}, function(error, result){
-      // result.tablelist.table.push({balls:ball});
-      // result.tablelist.push({title: title, ball:[ {top: 30, left: 60} ] })
-      // result.tablelist.push({table: ball})
-      result.tablelist.push({title: title, balls:[ {top: 10, left: 10} ] })
+      result.tablelist.push({title: title, array: array })
 
       result.save();
     })
 
-
     res.send({ 
-      result: title
+      result: [title, array]
     });
-
-
   }
-
 };
 
 // Export our index control

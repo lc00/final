@@ -15,11 +15,21 @@
 }
 
 .circle{
-	background-color: orange;
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
 	position: absolute;
+
+}
+
+#ball8{
+	background-color: black;
 	top: 30px;
 	left: 50px;
+}
+
+#cueball{
+	background-color: white;
+	top: 60px;
+	left: 100px;
 }
