@@ -16,20 +16,33 @@ var indexController = {
     });
   }, 
   newTable: function(req, res){
+
     var username = req.body.user;
-    var title = req.body.title;
+
+    var title = req.body.form_data.title;
+
+    var note = req.body.form_data.note;
+
     var array = JSON.parse(req.body.array);
 
     User.findOne({username: username}, function(error, result){
-      result.tablelist.push({title: title, array: array })
+      result.tablelist.push({title: title, note: note, array: array })
 
       result.save();
     })
 
     res.send({ 
-      result: [title, array]
+      result: [title, note, array]
     });
+
+  },
+  practiceShots: function(req, res){
+    res.render('practiceShots', {
+      success: "successfully got to this page"
+    })
+
   }
+
 };
 
 // Export our index control

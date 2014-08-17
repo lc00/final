@@ -5,12 +5,21 @@ $(function(){
 	$(document).on('click', '#user-name', function(){
 		$('#log-out').slideToggle('slow');
 	});
-	$('#table-info').submit(function(e){
+	$('#table-info').on('submit', function(e){
 		e.preventDefault();
+		
+		//get all form input fields and convert them to an object
+		var formData = $(this).serializeObject();
 
+		if(!formData.title){
+			alert('Please add title');
+			return false;
+		}
+
+		// get username
 		var user = $('#user-name').text();
-		var title = $('#title').val();
 
+		//get all the ball info on the table and input the info into an array
 		var arrayOfBalls = [];
 		var ballsOnTable = $('.circle');
 		$.each(ballsOnTable, function(index, el){
@@ -23,13 +32,23 @@ $(function(){
 				}
 			});
 		});
+
+		// POST to the server with username, form data, and balls on the table info
 		$.post('/newTable', {
-			user: user, 
-			title:title, 
+			user: user,
+			form_data: formData, 
 			array: JSON.stringify(arrayOfBalls) 
 		}, function(result){
 			console.log(result)
 		});
+
+		return true;
+	});
+
+	$('#practice-shot').on('click', function(){
+		$.get('/practiceShots', function(mssg){
+			console.log(mssg)
+		})
 	})
 
 });

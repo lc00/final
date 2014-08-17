@@ -75,7 +75,8 @@ app.get('/', indexController.index);
 // billiards balls
 app.post('/newTable', indexController.newTable);
 
-
+// Get practice shots page
+app.get('/practiceShots', indexController.practiceShots)
 
 
 

@@ -5,15 +5,35 @@ head
 	meta(name="viewport", content="width=device-width initial-scale=1")
 	title Passport Authentication
 	link(rel="stylesheet", type="text/css", href="/css/bootstrap.min.css")
-	link(rel="stylesheet", type="text/css", href="/css/bootstrap.min.css")
 	link(rel="stylesheet", type="text/css", href="/css/main.css")
 
 
 body
+	//- if user signed in, display 'username' @ top right corner
+	div.navbar.navbar-default.navbar-fixed-top(role="navigation")
+		div.container
+			ul.nav.navbar-nav
+				li.active
+					a#add-shot(href="/#") Add Shots
+				li
+					a#practice-shot(href="#") Practice Shots
+				li 
+					a#archive(href="#") Archive
+				li 
+					a#stat(href="#") Stat
+			if user
+				div.navbar-text.navbar-right#user-name #{user.username}
+				div.navbar-text.navbar-right#log-out 
+					a(href="/auth/logout") Log Out
+			else
+				//- else display sign in link @ top right corner
+				div.navbar-text.navbar-right
+					a(id="sign-in" href="/auth/login") Sign In
+					
 	block content
 
 	script(type='text/javascript', src="/javascript/jquery-2.1.1.min.js")
-	script(type='text/javascript', src="/javascript/main.js")
+	script(type='text/javascript', src="/javascript/main_test.js")
 
 
 	

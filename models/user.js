@@ -17,7 +17,7 @@ var bcrypt = require('bcrypt');
 // })  
 
 // var table = mongoose.Schema({
-//   id: String,
+//   id: String, // don't need it????
 //   archived: Boolean,
 //   notes: String,
 //   symbol: String,  //using String as a placeholder as null for now to avoid error mssg
