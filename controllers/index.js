@@ -24,7 +24,7 @@ var indexController = {
   },
   newTable: function(req, res){
 
-    var username = req.body.user;
+    var username = req.user.username;
 
     var title = req.body.form_data.title;
 
@@ -32,21 +32,64 @@ var indexController = {
 
     var array = JSON.parse(req.body.array);
 
-    User.findOne({username: username}, function(error, result){
-      result.tablelist.push({title: title, note: note, array: array })
-
-      result.save();
-    })
-
-    res.send({ 
-      result: [title, note, array]
+    User.findOne({username: username}, function(error, user){
+      if(error){
+        console.log(error)
+      }
+      else{}
+        user.tablelist.push({title: title, note: note, array: array }) 
+        user.save();
+        res.send({ 
+          result: [title, note, array]
+        });
+        
     });
 
   },
   practiceShots: function(req, res){
-    res.render('practiceShots',{
-      user: req.user
+
+    var username = req.user.username;
+
+    User.findOne({username: username}, function(error, user){
+      if(error){
+        console.log(error);
+      }
+      else{
+        var arrayOfTables = user.tablelist;
+        var tables = arrayOfTables.map(function(table){
+          var result = [];
+          for(var i=0; i< arrayOfTables.length; i++){
+            result.push(table.array[i].location.top)
+          }
+
+
+          return result
+
+         // { 
+            // title: table.title, 
+            // type: table.array.typeOfBall
+            // top: table.array.location.top,
+            // left: table.array.location.left
+
+          // }
+
+
+            // table.title
+            // table.array.typeOfBall
+            // table.array.location.top
+            // table.array.location.left  
+        });
+
+        res.render('practiceShots',{
+          user: req.user,
+          tables: tables
+          });
+      }
+
     });
+
+      
+
 
   }
 

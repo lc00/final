@@ -5,13 +5,9 @@ $(function(){
 	$(document).on('click', '#user-name', function(){
 		$('#log-out').slideToggle('slow');
 	});
+
 	$('addShots').on('click', function(){
-
-		var user = $('#user-name').text();
-
-		$.get('/add-shots', {
-				user: user
-			}, function(result){
+		$.get('/add-shots', function(result){
 			console.log( result.user +"successfuly loaded add-shots");
 		});
 	});
@@ -26,9 +22,6 @@ $(function(){
 			alert('Please add title');
 			return false;
 		}
-
-		// get username
-		var user = $('#user-name').text();
 
 		//get all the ball info on the table and input the info into an array
 		var arrayOfBalls = [];
@@ -46,7 +39,6 @@ $(function(){
 
 		// POST to the server with username, form data, and balls on the table info
 		$.post('/newTable', {
-			user: user,
 			form_data: formData, 
 			array: JSON.stringify(arrayOfBalls) 
 		}, function(result){
@@ -58,7 +50,7 @@ $(function(){
 
 	$('#practice-shot').on('click', function(){
 		$.get('/practice-shots', function(result){
-			console.log("successfly loaded")
+			console.log(result)
 		})
 	})
 
