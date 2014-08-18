@@ -16,8 +16,9 @@ var indexController = {
     });
   }, 
   addShots: function(req, res){
+    // console.log(req.user.username)
     res.render('addShots', {
-      success: 'success'
+      user: req.user
     });
 
   },
@@ -44,7 +45,7 @@ var indexController = {
   },
   practiceShots: function(req, res){
     res.render('practiceShots',{
-      success: "success"
+      user: req.user
     });
 
   }

@@ -6,10 +6,15 @@ $(function(){
 		$('#log-out').slideToggle('slow');
 	});
 	$('addShots').on('click', function(){
-		$.get('/add-shots', function(result){
-			console.log("successfuly loaded add-shots");
+
+		var user = $('#user-name').text();
+
+		$.get('/add-shots', {
+				user: user
+			}, function(result){
+			console.log( result.user +"successfuly loaded add-shots");
 		});
-	})
+	});
 
 	$('#table-info').on('submit', function(e){
 		e.preventDefault();
