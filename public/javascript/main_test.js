@@ -5,6 +5,12 @@ $(function(){
 	$(document).on('click', '#user-name', function(){
 		$('#log-out').slideToggle('slow');
 	});
+	$('addShots').on('click', function(){
+		$.get('/add-shots', function(result){
+			console.log("successfuly loaded add-shots");
+		});
+	})
+
 	$('#table-info').on('submit', function(e){
 		e.preventDefault();
 		

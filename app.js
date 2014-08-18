@@ -72,12 +72,6 @@ app.get('/auth/logout', authenticationController.logout);
 app.get('/', indexController.index);
 
 
-// billiards balls
-app.post('/newTable', indexController.newTable);
-
-// Get practice shots page
-app.get('/practice-shots', indexController.practiceShots)
-
 
 
 
@@ -91,6 +85,16 @@ app.use(passportConfig.ensureAuthenticated);
 // Because this route occurs after the ensureAuthenticated middleware, it will require
 // authentication before access is allowed.
 
+
+
+// Get request for viewing the add-shots page
+app.get('/add-shots', indexController.addShots);
+
+// billiards balls
+app.post('/newTable', indexController.newTable);
+
+// Get request for viewing the practice-shots page
+app.get('/practice-shots', indexController.practiceShots)
 
 
 // Start our server!

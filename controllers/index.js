@@ -15,6 +15,12 @@ var indexController = {
       user: req.user
     });
   }, 
+  addShots: function(req, res){
+    res.render('addShots', {
+      success: 'success'
+    });
+
+  },
   newTable: function(req, res){
 
     var username = req.body.user;
