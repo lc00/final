@@ -6,11 +6,11 @@ $(function(){
 		$('#log-out').slideToggle('slow');
 	});
 
-	$('addShots').on('click', function(){
-		$.get('/add-shots', function(result){
-			console.log( result.user +"successfuly loaded add-shots");
-		});
-	});
+	// $('addShots').on('click', function(){
+	// 	$.get('/add-shots', function(result){
+	// 		console.log( result.user +"successfuly loaded add-shots");
+	// 	});
+	// });
 
 	$('#table-info').on('submit', function(e){
 		e.preventDefault();
@@ -48,10 +48,6 @@ $(function(){
 		return true;
 	});
 
-	$('#practice-shot').on('click', function(){
-		$.get('/practice-shots', function(result){
-			console.log(result)
-		})
-	})
+	
 
 });

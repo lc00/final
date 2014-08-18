@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	div.container.margin-top
+		div.row
+			div.col-md-3.text-center
+				h3 Level of Difficulty
+			- for (var i = 1; i < 10; i++)
+				.row
+				div.col-md-3.text-center
+					h4 #{i}
+			div.col-md-9
+				
+
+			//- div.col-md-3
+			//- 	img(src="/image/pool-table-top-view.png")
+
+		//- div.row
+		//- 	div.col-md-3.text-center
+		//- 		h3 Category of Shots
+		//- div.row
+		//- 	div.col-md-3.text-center
+		//- 		h4 8 ball
+		//- 		h4 9 ball
+		//- 		h4 10 ball
+		//- 		h4 Straight pool
+		//- 		h4 Single shots
+		//- 		h4 Multiple Shots
+		//- 		h4 Position shots
+
+		//- div.row.center
+		//- 	div.col-md-3
+		//- 		img(src="/image/pool-table-top-view.png")
+		//- 		for table in tablelist
+		//- 			div= table.title
+		//- 			for i in table.array
+		//- 				div= i.typeOfBall
+		//- 				div= i.location.top
+		//- 				div= i.location.left
+		//- 			div= table.note

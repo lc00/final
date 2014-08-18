@@ -3,8 +3,24 @@
 	float: right;	
 }
 
-.margin-top{
+.margin-top70{
 	margin-top: 70px;
+}
+
+.left{
+	position: relative;
+}
+
+.center{
+	position: absolute;
+
+}
+
+img {
+	 -webkit-transform: rotate(90deg); 
+	 height: 167px;
+	 widows: 94px;
+	 margin-top: 200px;
 }
 
 .table{

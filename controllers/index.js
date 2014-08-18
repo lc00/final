@@ -36,12 +36,13 @@ var indexController = {
       if(error){
         console.log(error)
       }
-      else{}
+      else{
         user.tablelist.push({title: title, note: note, array: array }) 
         user.save();
         res.send({ 
           result: [title, note, array]
         });
+      }
         
     });
 
@@ -50,46 +51,18 @@ var indexController = {
 
     var username = req.user.username;
 
-    User.findOne({username: username}, function(error, user){
+    User.findOne({username: username}, function(error, result){
       if(error){
         console.log(error);
       }
       else{
-        var arrayOfTables = user.tablelist;
-        var tables = arrayOfTables.map(function(table){
-          var result = [];
-          for(var i=0; i< arrayOfTables.length; i++){
-            result.push(table.array[i].location.top)
-          }
-
-
-          return result
-
-         // { 
-            // title: table.title, 
-            // type: table.array.typeOfBall
-            // top: table.array.location.top,
-            // left: table.array.location.left
-
-          // }
-
-
-            // table.title
-            // table.array.typeOfBall
-            // table.array.location.top
-            // table.array.location.left  
-        });
-
         res.render('practiceShots',{
           user: req.user,
-          tables: tables
-          });
+          tablelist: result.tablelist
+        });
       }
 
-    });
-
-      
-
+    })
 
   }
 
