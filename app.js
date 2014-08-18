@@ -76,7 +76,7 @@ app.get('/', indexController.index);
 app.post('/newTable', indexController.newTable);
 
 // Get practice shots page
-app.get('/practiceShots', indexController.practiceShots)
+app.get('/practice-shots', indexController.practiceShots)
 
 
 

@@ -46,8 +46,8 @@ $(function(){
 	});
 
 	$('#practice-shot').on('click', function(){
-		$.get('/practiceShots', function(mssg){
-			console.log(mssg)
+		$.get('/practice-shots', function(result){
+			console.log("successfly loaded")
 		})
 	})
 

@@ -37,9 +37,9 @@ var indexController = {
 
   },
   practiceShots: function(req, res){
-    res.render('practiceShots', {
-      success: "successfully got to this page"
-    })
+    res.render('practiceShots',{
+      success: "success"
+    });
 
   }
 

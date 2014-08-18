@@ -14,13 +14,13 @@ body
 		div.container
 			ul.nav.navbar-nav
 				li.active
-					a#add-shot(href="/#") Add Shots
+					a#add-shot(href="/") Add Shots
 				li
-					a#practice-shot(href="#") Practice Shots
+					a#practice-shot(href="/practice-shots") Practice Shots
 				li 
-					a#archive(href="#") Archive
+					a#archive(href="/archive") Archive
 				li 
-					a#stat(href="#") Stat
+					a#stat(href="/stat") Stat
 			if user
 				div.navbar-text.navbar-right#user-name #{user.username}
 				div.navbar-text.navbar-right#log-out 
@@ -29,7 +29,7 @@ body
 				//- else display sign in link @ top right corner
 				div.navbar-text.navbar-right
 					a(id="sign-in" href="/auth/login") Sign In
-					
+
 	block content
 
 	script(type='text/javascript', src="/javascript/jquery-2.1.1.min.js")

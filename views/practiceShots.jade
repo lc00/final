@@ -1,13 +1,36 @@
 extends layout
 
 block content
+	//- //- if user signed in, display 'username' @ top right corner
+	//- div.navbar.navbar-default.navbar-fixed-top(role="navigation")
+	//- 	div.container
+	//- 		ul.nav.navbar-nav
+	//- 			li.active
+	//- 				a#add-shot(href="/") Add Shots
+	//- 			li
+	//- 				a#practice-shot(href="/practiceShots") Practice Shots
+	//- 			li 
+	//- 				a#archive(href="#") Archive
+	//- 			li 
+	//- 				a#stat(href="#") Stat
+	//- 		if user
+	//- 			div.navbar-text.navbar-right#user-name #{user.username}
+	//- 			div.navbar-text.navbar-right#log-out 
+	//- 				a(href="/auth/logout") Log Out
+	//- 		else
+	//- 			//- else display sign in link @ top right corner
+	//- 			div.navbar-text.navbar-right
+	//- 				a(id="sign-in" href="/auth/login") Sign In
 	div.container.margin-top
 		div.row
 			div.col-md-3
 				h3 Level of Difficulty
+		div.row
 			div.col-md-3
 				h4 1
+		div.row
 			div.col-md-3
 				h4 2
+		div.row
 			div.col-md-3
 				h4 3
