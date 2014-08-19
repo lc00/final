@@ -20,12 +20,14 @@ block content
 			div.col-md-10
 				for table in tablelist
 					div= table.title
-					div.table-set 
-						img.table(src="/image/pool-table-top-view.png")
+					div.table 
+						img.tableImage(src="/image/pool-table-top-view.png")
 						for i in table.array
 							- var num = i.typeOfBall
-							img.ball(src="/image/" + "0.png")
-				
+							- var top = i.location.top
+							- var left = i.location.left
+							img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
+					div.note-practice-shots= table.note				
 	
 
 
