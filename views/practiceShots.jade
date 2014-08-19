@@ -18,33 +18,34 @@ block content
 				h4 Position shots
 
 			div.col-md-10
-				for table in tablelist
-					div= table.title
-					div.table 
-						img.tableImage(src="/image/pool-table-top-view.png")
-						for i in table.array
-							- var num = i.typeOfBall
-							- var top = i.location.top
-							- var left = i.location.left
-							img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
-					div.note-practice-shots= table.note				
-	
+				button.btn.btn-primary.btn-lg(type="button" data-toggle="modal" data-target="#myModal")
+					| Launch demo modal
+
+				div.modal.fade#myModal(tabindex="-1" role="dialog" ariala-belledby="myModalLabel" aria-hidden="true")
+					div.modal-dialog
+						div.modal-content
+							div.modal-header
+								button.close(type="button" data-dismiss="modal")
+									span(aria-hidden="true")&times;
+									span.sr-only Close
+								h4.modal-title#myModalLabel Modal title
+							div.modal-body
+								| billiards tables
+							div.modal-footer
+								button.btn.btn-default(type="button" data-dismiss="modal") close
+								button.btn.btn-primary(type="button") Save changes
 
 
 
-				//- img(src="/image/pool-table-top-view.png")
-				//- img(src="/image/pool-table-top-view.png")
-				//- img(src="/image/pool-table-top-view.png")
-				//- img(src="/image/pool-table-top-view.png")
-				//- img(src="/image/pool-table-top-view.png")
 
-		//- div.row.center
-		//- 	div.col-md-3
-		//- 		img(src="/image/pool-table-top-view.png")
-		//- 		for table in tablelist
-		//- 			div= table.title
-		//- 			for i in table.array
-		//- 				div= i.typeOfBall
-		//- 				div= i.location.top
-		//- 				div= i.location.left
-		//- 			div= table.note
+
+				//- for table in tablelist
+				//- 	div= table.title
+				//- 	div.table 
+				//- 		img.tableImage(src="/image/pool-table-top-view.png")
+				//- 		for i in table.array
+				//- 			- var num = i.typeOfBall
+				//- 			- var top = i.location.top
+				//- 			- var left = i.location.left
+				//- 			img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
+				//- 	div.note-practice-shots= table.note
