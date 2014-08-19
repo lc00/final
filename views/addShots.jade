@@ -3,7 +3,9 @@ extends layout
 block content
 		div.container-fluid
 			div.table-set.clearfix
-				img.table.pull-left(src="/image/pool-table-top-view.png")
+				div.table
+					img.tableImage.pull-left(src="/image/pool-table-top-view.png")
+
 				img.ball#ball0(src='/image/0.png', data-type="0")
 				//- img.ball.margin-left-600.margin-bottom-10#ball7(src='/image/7.png', data-type="7")
 				img.ball#ball1(src='/image/1.png', data-type="1")
