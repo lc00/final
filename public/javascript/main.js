@@ -54,7 +54,6 @@ $(function(){
 				});
 			});
 
-			console.log(arrayOfBalls)
 			// POST to the server with username, form data, and balls on the table info
 			$.post('/newTable', {
 				form_data: formData, 
@@ -92,7 +91,25 @@ $(function(){
 		var ball = new Ball(selectedBall, {top: e.offsetY, left: e.offsetX})
 		ball.create();
 		$(this).append(ball.el);
-	})
+	});
+
+	// modal mode
+	$('.table').on("click", function(e){
+
+		var user = $(this).data('user');
+		var title = $(this).data('title');
+		var index = $(this).data('index');
+
+		$.get('/display-TableModal', {
+			user: user,
+			title: title,
+			index: index
+		}, function(result){
+			console.log(result)
+		})
+
+		// $("#myModal").modal('toggle')
+	});
 
 
 });
