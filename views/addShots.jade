@@ -1,23 +1,34 @@
 extends layout
 
 block content
-		div.container
-		div.table-set
-			img(src="/image/pool-table-top-view.png")
-			img.balls(src='/image/4.png', data-type="0")
+		div.container-fluid
+			div.table-set.clearfix
+				img.table.pull-left(src="/image/pool-table-top-view.png")
+				img.ball#ball0(src='/image/0.png', data-type="0")
+				//- img.ball.margin-left-600.margin-bottom-10#ball7(src='/image/7.png', data-type="7")
+				img.ball#ball1(src='/image/1.png', data-type="1")
+				img.ball#ball2(src='/image/2.png', data-type="2")
+				img.ball#ball3(src='/image/3.png', data-type="3")
+				img.ball#ball4(src='/image/4.png', data-type="4")
+				img.ball#ball5(src='/image/5.png', data-type="5")
+				img.ball#ball6(src='/image/6.png', data-type="6")
+				img.ball#ball7(src='/image/7.png', data-type="7")
+				br
+				img.ball#ball8(src='/image/8.png', data-type="8")
+				img.ball#ball9(src='/image/9.png', data-type="9")
+				img.ball#ball10(src='/image/10.png', data-type="10")
+				img.ball#ball11(src='/image/11.png', data-type="11")
+				img.ball#ball12(src='/image/12.png', data-type="12")
+				img.ball#ball13(src='/image/13.png', data-type="13")
+				img.ball#ball14(src='/image/14.png', data-type="14")
+				img.ball#ball15(src='/image/15.png', data-type="15")
 
 
-			//- div.circle#ball8(data-type="8")
-			//- img.balls(src='/image/4.png', data-type="0")
-			//- img.balls(src='/image/1.png', data-type="0")
-			//- img.balls(src='/image/2.png', data-type="0")
-			//- img.balls(src='/image/0.png', data-type="0")
-
-		form#table-info(role='form')
-			div.form-group
-				label Title
-				input.form-control#title(name='title' type='text' placeholder='title')
-			div.form-group
-				label Note
-				textarea.form-control#note(name="note" rows="5" placeholder="add note here")
-			button.btn.ntn-default(type='submit') Submit
+			form#table-info(role='form')
+				div.form-group
+					label Title
+					input.form-control#title(name='title' type='text' placeholder='title')
+				div.form-group
+					label Note
+					textarea.form-control#note(name="note" rows="5" placeholder="add note here")
+				button.btn.ntn-default(type='submit') Submit
