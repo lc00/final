@@ -11,8 +11,6 @@
 	position: relative;
 }
 
-.center{
-	position: absolute;
 
 }
 .table-set {
@@ -22,44 +20,21 @@
 img {
 	 /*-webkit-transform: rotate(90deg); */
 	 height: 200px;
-	 /*widows: 94px;*/
-	 /*margin-top: 200px;*/
 	 position: relative;
 }
-/*.tablePracticeShots{
-	position: relative;
-}*/
+
 
 .balls{
-	height: 30px;
-	width: 30px;
+	height: 25px;
+	width: 25px;
 
 }
 
-/*.table{
-	background-color: green;
-	width: 200px;
-	height: 400px;
-	position: relative;
-}*/
 
-.circle{
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	position: absolute;
 
-}
-
-#ball8{
-	background-color: black;
-/*	top: 30px;
-	left: 50px;*/
-}
-
-#cueball{
+/*#cueball{
 	background-image: url('/image/ball0.svg');
 	position: absolute;
 	top: 10px;
 	left: 10px;
-}
+}*/
