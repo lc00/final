@@ -2,9 +2,10 @@ extends layout
 
 block content
 		div.container
-		div.table
-			div.circle#ball8(data-type="8-ball")
-			div.circle#cueball(data-type="cue-ball")
+		div.table-set
+			img(src="/image/pool-table-top-view.png")
+			div.circle#ball8(data-type="8")
+			img.balls#cueball(src='/image/ball0.svg', data-type="0")
 		form#table-info(role='form')
 			div.form-group
 				label Title

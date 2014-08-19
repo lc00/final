@@ -15,20 +15,33 @@
 	position: absolute;
 
 }
-
-img {
-	 -webkit-transform: rotate(90deg); 
-	 height: 167px;
-	 widows: 94px;
-	 margin-top: 200px;
+.table-set {
+	position: relative;
 }
 
-.table{
+img {
+	 /*-webkit-transform: rotate(90deg); */
+	 height: 200px;
+	 /*widows: 94px;*/
+	 /*margin-top: 200px;*/
+	 position: relative;
+}
+/*.tablePracticeShots{
+	position: relative;
+}*/
+
+.balls{
+	height: 30px;
+	width: 30px;
+
+}
+
+/*.table{
 	background-color: green;
 	width: 200px;
 	height: 400px;
 	position: relative;
-}
+}*/
 
 .circle{
 	width: 20px;
@@ -40,12 +53,13 @@ img {
 
 #ball8{
 	background-color: black;
-	top: 30px;
-	left: 50px;
+/*	top: 30px;
+	left: 50px;*/
 }
 
 #cueball{
-	background-color: white;
-	top: 60px;
-	left: 100px;
+	background-image: url('/image/ball0.svg');
+	position: absolute;
+	top: 10px;
+	left: 10px;
 }

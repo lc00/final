@@ -18,12 +18,23 @@ block content
 				h4 Position shots
 
 			div.col-md-10
-				img(src="/image/pool-table-top-view.png")
-				img(src="/image/pool-table-top-view.png")
-				img(src="/image/pool-table-top-view.png")
-				img(src="/image/pool-table-top-view.png")
-				img(src="/image/pool-table-top-view.png")
-				img(src="/image/pool-table-top-view.png")
+				for table in tablelist
+					div= table.title
+					div.table-set 
+						img(src="/image/pool-table-top-view.png")
+						for i in table.array
+							- var num = i.typeOfBall
+							img.balls(src="/image/ball" + "#{num}.svg")
+				
+	
+
+
+
+				//- img(src="/image/pool-table-top-view.png")
+				//- img(src="/image/pool-table-top-view.png")
+				//- img(src="/image/pool-table-top-view.png")
+				//- img(src="/image/pool-table-top-view.png")
+				//- img(src="/image/pool-table-top-view.png")
 
 		//- div.row.center
 		//- 	div.col-md-3
