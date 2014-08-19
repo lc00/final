@@ -18,16 +18,19 @@ Ball.prototype.create = function(){
 };
 
 $(function(){
+	// log out shows up
 	$(document).on('click', '#user-name', function(){
 		$('#log-out').slideToggle('slow');
 	});
 
+	//submitting a new shot on Add Shots page
 	$('#table-info').on('submit', function(e){
 		e.preventDefault();
 
 			//get all form input fields and convert them to an object
 			var formData = $(this).serializeObject();
 
+			// stop proceeding to the next step if the title field is not filled out 
 			if(!formData.title){
 				alert('Please add title');
 				return false;
@@ -35,11 +38,15 @@ $(function(){
 
 			//get all the ball info on the table and input the info into an array
 			var arrayOfBalls = [];
-			var ballsOnTable = $('.circle');
+			var ballsOnTable = $('.ball-on-table');
 			$.each(ballsOnTable, function(index, el){
 				var el = $(el);
+
+
+				// console.dir(el)
+
 				arrayOfBalls.push({ 
-					'typeOfBall': el.data('type'),
+					'typeOfBall': el.context.dataset.type,
 					"location": {
 						'left': el.context.offsetLeft,
 						'top': el.context.offsetTop
@@ -47,6 +54,7 @@ $(function(){
 				});
 			});
 
+			console.log(arrayOfBalls)
 			// POST to the server with username, form data, and balls on the table info
 			$.post('/newTable', {
 				form_data: formData, 
@@ -56,9 +64,15 @@ $(function(){
 			});
 
 	});
+
+	// this is the variable that holds the selected ball when one of 
+	// the balls is selected  to be placed on the table on Add Shots page 
 	var selectedBall = "";
 
+	// ball gets a border when being clicked on and its data type is 
+	// stored into the a variable
 	$('.ball').click(function(){
+
 		$('.ball').removeClass('border');
 		$(this).addClass('border');	
 
@@ -68,7 +82,13 @@ $(function(){
 
 	});
 
+	// a ball is placed onto the table 
 	$('.table').click(function(e){
+		// stop proceeding if no ball is clicked on/selected
+		if( selectedBall === ""){
+			return false;
+		}
+
 		var ball = new Ball(selectedBall, {top: e.offsetY, left: e.offsetX})
 		ball.create();
 		$(this).append(ball.el);
