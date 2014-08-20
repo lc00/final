@@ -21,9 +21,10 @@ body.margin-top70
 					a#archive(href="/archive") Archive
 
 			if user
-				div.navbar-text.navbar-right#user-name #{user.username}
-				div.navbar-text.navbar-right#log-out 
-					a(href="/auth/logout") Log Out
+				div.navbar-right
+					div.navbar-text#user-name #{user.username}
+					div.navbar-text#log-out 
+						a(href="/auth/logout") Log Out
 			else
 				//- else display sign in link @ top right corner
 				div.navbar-text.navbar-right

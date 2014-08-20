@@ -26,9 +26,9 @@ $(function(){
 	// })
 
 	// log out shows up
-	$(document).on('click', '#user-name', function(){
-		$('#log-out').slideToggle('slow');
-	});
+	// $(document).on('hover', '#user-name', function(){
+	// 	$('#log-out').show();
+	// });
 
 
 	// variable that holds the level of difficulty
