@@ -30,6 +30,33 @@ $(function(){
 		$('#log-out').slideToggle('slow');
 	});
 
+
+	// variable that holds the level of difficulty
+	var levelOfDifficulty;
+
+	// highlight the number under Level of Difficulty in Add Shots page
+	$('.level').click(function(){
+		levelOfDifficulty = $(this).data('level');
+
+		$('.level').removeClass('green');
+		$(this).addClass('green');
+
+	});
+
+
+	// variable that holds the category of shots
+	var catOfShots = "";
+
+	// highlight the category of shots 
+	$('.cat-of-shots').click(function(){
+
+		$('.cat-of-shots').removeClass('green');
+		$(this).addClass('green');	
+
+		catOfShots = $(this).text();
+	});
+
+
 	//submitting a new shot on Add Shots page
 	$('#table-info').on('submit', function(e){
 		e.preventDefault();
@@ -63,6 +90,8 @@ $(function(){
 
 			// POST to the server with username, form data, and balls on the table info
 			$.post('/newTable', {
+				level: levelOfDifficulty,
+				category: catOfShots,
 				form_data: formData, 
 				array: JSON.stringify(arrayOfBalls) 
 			}, function(result){
@@ -84,9 +113,9 @@ $(function(){
 
 		selectedBall = $(this).data('type');
 
-
-
 	});
+	
+
 
 	// a ball is placed onto the table 
 	$('.table').click(function(e){

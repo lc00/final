@@ -62,6 +62,10 @@ var indexController = {
 
     var username = req.user.username;
 
+    var level = req.body.level;
+
+    var category = req.body.category;
+
     var title = req.body.form_data.title;
 
     var note = req.body.form_data.note;
@@ -73,10 +77,10 @@ var indexController = {
         console.log(error)
       }
       else{
-        user.tablelist.push({title: title, note: note, array: array }) 
+        user.tablelist.push({title: title, note: note, level: level, category: category, array: array }) 
         user.save();
         res.send({ 
-          result: [title, note, array]
+          result: [title, note, level, category, array]
         });
       }
         
