@@ -4,6 +4,9 @@ var passport = require('passport');
 // We also will be using our User model
 var User = require('../models/user');
 
+// use our controller
+var indexController = require('./index.js')
+
 
 /**
  * A utility function (since we'll use it a couple times)
@@ -22,7 +25,10 @@ var performLogin = function(req, res, next, user){
     if(err) return next(err);
 
     // Otherwise, send the user to the homepage.
+
+      
     return res.redirect('/');
+    
   });
 };
 
