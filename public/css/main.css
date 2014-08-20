@@ -1,10 +1,45 @@
 body{
-	background-image: url('../image/abstract_circles_background_1.jpg');
+	background-image: url('../image/lined_paper.png');
+	font-family: 'Just Another Hand', cursive;
+	font-size: 30px;
+}
+
+.sign-in-form{
+	
+}
+.font-size30{
+	font-size: 30px;
+}
+.font-size20{
+	font-size: 20px;
+}
+
+.font-size60{
+	font-size: 60px;
+}
+
+.font-size40{
+	font-size: 40px;
+}
+
+#evolution{
+	margin: 50px 200px;
+	widows: 15em;
 }
 
 #log-out{
 	/*display: none;*/
 	/*float: right;	*/
+}
+
+#title{
+	font-size: 30px;
+	height: 50px;
+}
+
+#note{
+	font-size: 30px;
+	height: 150px;
 }
 
 .margin-top70{

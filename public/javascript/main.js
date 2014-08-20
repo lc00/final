@@ -121,8 +121,8 @@ $(function(){
 
 	$('.ball').click(function(){
 
-		// $('.ball').removeClass('border');
-		// $(this).addClass('border');	
+		$('.ball').removeClass('border');
+		$(this).addClass('border');	
 
 		selectedBall = $(this).data('type');
 
