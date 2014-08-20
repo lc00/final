@@ -101,6 +101,7 @@ $(function(){
 
 		$('.modal-body').html(selectedTable);
 
+		
 		$("#myModal").modal('toggle')
 	});
 

@@ -16,7 +16,7 @@
 	 height: 200px;
 	 width: 400px;
 	 position: relative;
-	 margin-bottom: 50px;
+	 margin-bottom: 80px;
 }	
 
 .tableImage{
@@ -50,5 +50,7 @@
 }
 
 .note-practice-shots{
-	/*display: none;*/
+	position: absolute;
+	top: 250px;
+
 }
