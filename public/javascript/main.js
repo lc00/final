@@ -4,32 +4,42 @@ var Ball = function(type, location){
 	this.type = type;
 	this.top = location.top;
 	this.left = location.left;
+
+
+
+
 }
 Ball.prototype.create = function(){
 	// <img src="/image/0.png" class="ball-on-table" data-type="0" style="top: 0; left: 0">
-	this.el = $('<img>')
-		.attr('src', '/image/' + this.type + '.png')
-		.addClass('ball-on-table')
-		.attr('data-type', this.type)
-		.css({
-				'top': this.top - 12.5,
-				'left': this.left - 12.5
-		});
+	
+	if(this.type === 0){
+		this.el = $('<img>')
+			.attr('src', '/image/' + this.type + '.svg')
+			.addClass('ball-on-table')
+			.attr('data-type', this.type)
+			.css({
+					'top': this.top - 12.5,
+					'left': this.left - 12.5,
+					"height": '33px',
+					"width": '33px'
+			});
+	}
+
+
+	else {
+		this.el = $('<img>')
+			.attr('src', '/image/' + this.type + '.png')
+			.addClass('ball-on-table')
+			.attr('data-type', this.type)
+			.css({
+					'top': this.top - 12.5,
+					'left': this.left - 12.5
+			});
+	}
+
 };
 
 $(function(){
-	// highlight the active navbar link
-	// $('li').click(function(e){
-		// e.preventDefault();
-		// $('.link').removeClass('active');
-		// $(this).addClass('active');
-	// })
-
-	// log out shows up
-	// $(document).on('hover', '#user-name', function(){
-	// 	$('#log-out').show();
-	// });
-
 
 	// variable that holds the level of difficulty
 	var levelOfDifficulty;
@@ -38,8 +48,8 @@ $(function(){
 	$('.level').click(function(){
 		levelOfDifficulty = $(this).data('level');
 
-		$('.level').removeClass('green');
-		$(this).addClass('green');
+		$('.level').removeClass('yellow');
+		$(this).addClass('yellow');
 
 	});
 
@@ -50,11 +60,12 @@ $(function(){
 	// highlight the category of shots 
 	$('.cat-of-shots').click(function(){
 
-		$('.cat-of-shots').removeClass('green');
-		$(this).addClass('green');	
+		$('.cat-of-shots').removeClass('yellow');
+		$(this).addClass('yellow');	
 
 		catOfShots = $(this).text();
 	});
+
 
 
 	//submitting a new shot on Add Shots page
@@ -106,12 +117,21 @@ $(function(){
 
 	// ball gets a border when being clicked on and its data type is 
 	// stored into the a variable
+	// ball moving animation
+
 	$('.ball').click(function(){
 
-		$('.ball').removeClass('border');
-		$(this).addClass('border');	
+		// $('.ball').removeClass('border');
+		// $(this).addClass('border');	
 
 		selectedBall = $(this).data('type');
+
+		var ball = $(this);
+
+		console.log(ball)
+
+		TweenLite.to(ball, 1, {top: "300px"})
+
 
 	});
 	
