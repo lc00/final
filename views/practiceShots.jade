@@ -28,8 +28,6 @@ block content
 							- var left = i.location.left
 							img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
 						div.note-practice-shots= table.note
-				button.btn.btn-primary.btn-lg#modalBtn(data-target="#myModal")
-					| Launch demo modal
 
 				div.modal.fade#myModal(tabindex="-1" role="dialog" ariala-belledby="myModalLabel" aria-hidden="true")
 					div.modal-dialog
@@ -38,9 +36,8 @@ block content
 								button.close(type="button" data-dismiss="modal")
 									span(aria-hidden="true")&times;
 									span.sr-only Close
-								h4.modal-title#myModalLabel Modal title
+								h4.modal-title#myModalLabel Practice Table
 							div.modal-body
 
 							div.modal-footer
 								button.btn.btn-default(type="button" data-dismiss="modal") close
-								button.btn.btn-primary(type="button") Save changes
