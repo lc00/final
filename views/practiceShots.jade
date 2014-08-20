@@ -26,7 +26,11 @@ block content
 							- var num = i.typeOfBall
 							- var top = i.location.top
 							- var left = i.location.left
-							img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
+							if num==='0'
+								img.ball-on-table(src="/image/" + "#{num}.svg", style="top: #{top}px; left: #{left}px; height: 34px; width: 34px")
+							else
+								img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
+
 						div.note-practice-shots= table.note
 
 				div.modal.fade#myModal(tabindex="-1" role="dialog" ariala-belledby="myModalLabel" aria-hidden="true")

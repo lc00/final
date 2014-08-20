@@ -1,3 +1,7 @@
+body{
+	background-image: url('../image/abstract_circles_background_1.jpg');
+}
+
 #log-out{
 	/*display: none;*/
 	/*float: right;	*/
@@ -9,6 +13,17 @@
 
 .left{
 	position: relative;
+}
+
+.fix{
+/*	position: fixed;
+	width: 20%;*/
+
+}
+
+.scroll{
+/*	float: left;
+	width: 80%;*/
 }
 
 .green{

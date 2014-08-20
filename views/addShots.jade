@@ -3,7 +3,8 @@ extends layout
 block content
 		div.container-fluid
 			div.rows
-				div.col-md-2.text-center
+				
+				div.col-md-2.text-center.fixed
 					h3 Level of Difficulty
 					- for (var i = 1; i < 13; i++)
 						h4.level(data-level="#{i}") #{i}
@@ -16,12 +17,12 @@ block content
 					h4.cat-of-shots Single shot
 					h4.cat-of-shots Multiple Shots
 					h4.cat-of-shots Position shots
-				div.col-md-10
+				div.col-md-10.scroll
 					div.table-set
 						div.table
 							img.tableImage.pull-left(src="/image/pool-table-top-view.png")
 
-						img.ball#ball0(src='/image/0.jpg', data-type="0")
+						img.ball#ball0(src='/image/0.svg', data-type="0")
 						//- img.ball.margin-left-600.margin-bottom-10#ball7(src='/image/7.png', data-type="7")
 						img.ball#ball1(src='/image/1.png', data-type="1")
 						img.ball#ball2(src='/image/2.png', data-type="2")
