@@ -16,20 +16,20 @@ block content
 				h4 Single shot
 				h4 Multiple Shots
 				h4 Position shots
-
 			div.col-md-10
-				-each table, index in tablelist
+				- each table, index in tablelist
 					div= table.title
 					div.table(data-title="#{table.title}" data-user="#{user.username}" data-index="#{index}") 
 						img.tableImage(src="/image/pool-table-top-view.png")
+
 						-for i in table.array
 							- var num = i.typeOfBall
 							- var top = i.location.top
 							- var left = i.location.left
 							img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
-						div.note-practice-shots= table.note	
-				//- button.btn.btn-primary.btn-lg#modalBtn(data-target="#myModal")
-				//- 	| Launch demo modal
+						div.note-practice-shots= table.note
+				button.btn.btn-primary.btn-lg#modalBtn(data-target="#myModal")
+					| Launch demo modal
 
 				div.modal.fade#myModal(tabindex="-1" role="dialog" ariala-belledby="myModalLabel" aria-hidden="true")
 					div.modal-dialog
@@ -44,18 +44,3 @@ block content
 							div.modal-footer
 								button.btn.btn-default(type="button" data-dismiss="modal") close
 								button.btn.btn-primary(type="button") Save changes
-
-
-
-
-
-				//- for table in tablelist
-				//- 	div= table.title
-				//- 	div.table 
-				//- 		img.tableImage(src="/image/pool-table-top-view.png")
-				//- 		for i in table.array
-				//- 			- var num = i.typeOfBall
-				//- 			- var top = i.location.top
-				//- 			- var left = i.location.left
-				//- 			img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
-				//- 	div.note-practice-shots= table.note

@@ -96,7 +96,6 @@ app.post('/newTable', indexController.newTable);
 // Get request for viewing the practice-shots page
 app.get('/practice-shots', indexController.practiceShots);
 
-app.get('/display-TableModal', indexController.displayTableModal);
 
 
 // Start our server!

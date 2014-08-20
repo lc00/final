@@ -64,24 +64,9 @@ var indexController = {
 
     })
 
-  },
-
-  displayTableModal: function(req, res){
-    var username = req.query.user;
-    var title = req.query.title;
-    var index = req.query.index;
-
-    User.findOne({username: username}, function(error, user){
-      if(error){
-        console.log(error);
-      }
-      else{
-        res.send(user.tablelist[index])
-        
-      }
-    });
-
   }
+
+
 
 };
 

@@ -93,22 +93,15 @@ $(function(){
 		$(this).append(ball.el);
 	});
 
+
 	// modal mode
 	$('.table').on("click", function(e){
 
-		var user = $(this).data('user');
-		var title = $(this).data('title');
-		var index = $(this).data('index');
+		var selectedTable = $(this).clone();
 
-		$.get('/display-TableModal', {
-			user: user,
-			title: title,
-			index: index
-		}, function(result){
-			console.log(result)
-		})
+		$('.modal-body').html(selectedTable);
 
-		// $("#myModal").modal('toggle')
+		$("#myModal").modal('toggle')
 	});
 
 
