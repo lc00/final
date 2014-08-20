@@ -19,11 +19,11 @@ Ball.prototype.create = function(){
 
 $(function(){
 	// highlight the active navbar link
-	$('.link').click(function(e){
+	// $('li').click(function(e){
 		// e.preventDefault();
-		$('.link').removeClass('active');
-		$(this).addClass('active');
-	})
+		// $('.link').removeClass('active');
+		// $(this).addClass('active');
+	// })
 
 	// log out shows up
 	$(document).on('click', '#user-name', function(){

@@ -13,14 +13,12 @@ body.margin-top70
 	div.navbar.navbar-default.navbar-fixed-top(role="navigation")
 		div.container
 			ul.nav.navbar-nav
-				li.link
+				li(class="#{pageName==='Add Shots'?'active':''} link")
 					a#add-shot(href="/add-shots") Add Shots
-				li.link
+				li(class="#{pageName==='Practice Shots'?'active':''} link")
 					a#practice-shot(href="/practice-shots") Practice Shots
-				li.link 
+				li(class="#{pageName==='Archive'?'active':''} link") 
 					a#archive(href="/archive") Archive
-				li.link 
-					a#stat(href="/stat") Stat
 
 			if user
 				div.navbar-text.navbar-right#user-name #{user.username}

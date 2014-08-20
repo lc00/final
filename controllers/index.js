@@ -26,12 +26,15 @@ var indexController = {
           if( result.tablelist.length !== 0 ){
             res.render('practiceShots',{
               user: req.user,
-              tablelist: result.tablelist
+              tablelist: result.tablelist,
+              pageName: "Practice Shots"
             });
           }
           else{
             res.render('addShots', {
-              user: req.user
+              user: req.user,
+              pageName: "Add Shots"
+
             })
           }
 
@@ -54,7 +57,8 @@ var indexController = {
   addShots: function(req, res){
     // console.log(req.user.username)
     res.render('addShots', {
-      user: req.user
+      user: req.user,
+      pageName: "Add Shots"
     });
 
   },
@@ -98,7 +102,8 @@ var indexController = {
       else{
         res.render('practiceShots',{
           user: req.user,
-          tablelist: result.tablelist
+          tablelist: result.tablelist,
+          pageName: "Practice Shots"
         });
       }
 

@@ -6,16 +6,16 @@ block content
 			div.col-md-2.text-center
 				h3 Level of Difficulty
 				- for (var i = 1; i < 13; i++)
-					h4 #{i}
+					h4.level-practice #{i}
 
 				h3 Category of Shots
-				h4 8 ball
-				h4 9 ball
-				h4 10 ball
-				h4 Straight pool
-				h4 Single shot
-				h4 Multiple Shots
-				h4 Position shots
+				h4.cat-practice 8 ball
+				h4.cat-practice 9 ball
+				h4.cat-practice 10 ball
+				h4.cat-practice Straight pool
+				h4.cat-practice Single shot
+				h4.cat-practice Multiple Shots
+				h4.cat-practice Position shots
 			div.col-md-10
 				- each table, index in tablelist
 					div= table.title
