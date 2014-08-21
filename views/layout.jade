@@ -13,23 +13,30 @@ body.margin-top70
 	//- if user signed in, display 'username' @ top right corner
 	div.navbar.navbar-default.navbar-fixed-top(role="navigation")
 		div.container
-			ul.nav.navbar-nav
-				li(class="#{pageName==='Add Shots'?'active':''} link")
-					a#add-shot(href="/add-shots") Add Shots
-				li(class="#{pageName==='Practice Shots'?'active':''} link")
-					a#practice-shot(href="/practice-shots") Practice Shots
-				li(class="#{pageName==='Archive'?'active':''} link") 
-					a#archive(href="/archive") Archive
+			div.navbar-header
+				button.navbar-toggle(type="button", data-toggle="collapse", data-target="#stuff-collapse")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				div.navbar-collapse.collapse#stuff-collapse
+					ul.nav.navbar-nav
+						li(class="#{pageName==='Add Shots'?'active':''} link")
+							a#add-shot(href="/add-shots") Add Shots
+						li(class="#{pageName==='Practice Shots'?'active':''} link")
+							a#practice-shot(href="/practice-shots") Practice Shots
+						li(class="#{pageName==='Archive'?'active':''} link") 
+							a#archive(href="/archive") Archive
 
-			if user
-				div.navbar-right
-					div.navbar-text#user-name #{user.username}
-					div.navbar-text#log-out 
-						a(href="/auth/logout") Log Out
-			else
-				//- else display sign in link @ top right corner
-				div.navbar-text.navbar-right
-					a(id="sign-in" href="/auth/login") Sign In
+					if user
+						ul.nav.navbar-nav.navbar-right
+							li.navbar-text#user-name #{user.username}
+							li.navbar-text#log-out
+								a(href="/auth/logout") Log Out
+					else
+						//- else display sign in link @ top right corner
+						div.navbar-text.navbar-right
+							a(id="sign-in" href="/auth/login") Sign In
 
 	block content
 

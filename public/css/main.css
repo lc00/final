@@ -22,6 +22,10 @@ body{
 	font-size: 40px;
 }
 
+.margin-left150{
+	margin-left: 150px;
+}
+
 #evolution{
 	margin: 50px 200px;
 	widows: 15em;
