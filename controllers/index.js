@@ -1,6 +1,8 @@
 // We also will be using our User model
 var User = require('../models/user');
 
+var _ = require('underscore');
+
 // Simple index controller
 var indexController = {
 
@@ -108,6 +110,33 @@ var indexController = {
       }
 
     })
+
+  },
+  tableFiltered: function(req, res){
+    var username = req.user.username;
+    var level = req.query.level;
+    var cat = req.query.cat;
+    console.log(username,level, cat)
+
+    User
+      .findOne({username: username}, function(error, result){
+        if(error){
+          console.log(error);
+        }
+        else{
+          var matchedTable = _.where(result.tablelist, {level: level});
+
+          console.log(matchedTable)
+
+          res.render('practiceShots',{
+            user: req.user,
+            tablelist: matchedTable,
+            pageName: "Practice Shots"
+          });
+        }
+
+    })
+
 
   }
 

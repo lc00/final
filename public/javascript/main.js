@@ -66,8 +66,6 @@ $(function(){
 		catOfShots = $(this).text();
 	});
 
-
-
 	//submitting a new shot on Add Shots page
 	$('#table-info').on('submit', function(e){
 		e.preventDefault();
@@ -161,5 +159,30 @@ $(function(){
 		$("#myModal").modal('toggle')
 	});
 
+
+	$('.level-practice').click(function(){
+		$('.level-practice').removeClass('yellow');
+		$(this).addClass('yellow');
+
+		// var level = $(this).text();
+		// var cat = $('.cat-practice.yellow').text();
+
+		// $.get('/table-filtered', {level: level, cat: cat}, function(result){
+		// 	console.log(result)
+		// 	$(document).html(result);
+		// })
+
+
+	})
+
+	$('.cat-practice').click(function(){
+		$('.cat-practice').removeClass('yellow');
+		$(this).addClass('yellow');
+
+		// var cat = $(this).text();
+		// var level = $('.level-practice.yellow').text();
+
+
+	})
 
 });
