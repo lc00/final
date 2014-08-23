@@ -102,6 +102,8 @@ var indexController = {
         console.log(error);
       }
       else{
+        // console.log('practiceshots page', result.tablelist)
+
         res.render('practiceShots',{
           user: req.user,
           tablelist: result.tablelist,
@@ -124,17 +126,30 @@ var indexController = {
           console.log(error);
         }
         else{
+          if( level === '' && cat === ''){
+            var matchedTable = result.tablelist;
+            // console.log( 'no level and cat', matchedTable, level, cat)
 
-          if(level === '')
+           } 
+          else if(level === ''){
             var matchedTable = _.where(result.tablelist, {category: cat});
+            // console.log( 'no level, just cat', matchedTable, level, cat)
 
-          else if (cat === '')
+
+          }
+
+          else if (cat === ''){
             var matchedTable = _.where(result.tablelist, {level: level});
+            // console.log( 'no cat, just level', matchedTable, level, cat)
 
-          else 
+          }
+          else {
+
+
             var matchedTable = _.where(result.tablelist, {level: level, category: cat});
+            // console.log( 'have level and cat', matchedTable, level, cat)
 
-        console.log(matchedTable)
+          }
 
         res.render('practiceShots_filtered',{
           user: req.user,

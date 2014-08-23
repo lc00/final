@@ -135,7 +135,7 @@ $(function(){
 	
 
 
-	// a ball is placed onto the table 
+	// a ball is placed onto the table on Add Shots page
 	$('.table').click(function(e){
 		// stop proceeding if no ball is clicked on/selected
 		if( selectedBall === ""){
@@ -148,45 +148,49 @@ $(function(){
 	});
 
 
-	// modal mode
+	// modal mode on Practice Shots page
 	$('.table').on("click", function(e){
 		var selectedTable = $(this).clone();
 		$('.modal-body').html(selectedTable);
 		$("#myModal").modal('toggle')
 	});
 
-	var level;
-	var cat;
+	var level = '';
+	var cat = '';
 
 	$('.level-practice').click(function(){
 		//if it is yellow already, make it not yellow
 
 		var justClickedLevel = $(this).text();
 
-		console.log(justClickedLevel, level)
-
+		// just clicked on the level that was previously selected,
+		// unselect it and update the table
 		if ( justClickedLevel===level ) {
 			$(this).removeClass('yellow');
+			level = '';
 
-			console.log('hi')
+			// console.log('level clicked - justclicked level equal to level', level, cat)
 
+			// Category has selection, only display tables based on this Category
 			if (cat) {
 				$.get('/table-filtered', {level: level, cat: cat}, function(result){
-					console.log('if')
+					// console.log('level clicked - cat is selected' )
 					$('.col-md-10').html(result)
 				});				
 			}
+			// no level of Diff. and Category of Shots is selected,
+			// render practice shot page with all tables
 			else{
 				$.get('practice-shots', function(result){
-					console.log('else')
-					$('.col-md-10').html(result)
+					// console.log('level clicked - no level and cat, render practiceshots page')
+					$('body').html(result)
 				})
 			}
 
 		}	
 
 
-
+		// new level is clicked/selected 
 
 		else {
 			$('.level-practice').removeClass('yellow');
@@ -195,7 +199,7 @@ $(function(){
 			level = $(this).text();
 			cat = $('.cat-practice.yellow').text();
 
-			console.log(level, cat)
+			// console.log('new level clicked', level, cat)
 
 			$.get('/table-filtered', {level: level, cat: cat}, function(result){
 				$('.col-md-10').html(result)
@@ -207,15 +211,26 @@ $(function(){
 
 		if( $(this).text() === cat ){
 			$(this).removeClass('yellow');
+			cat = '';
+
+			// console.log('cat clicked - justclicked cat equal to cat', level, cat)
 
 			if( level ){
-				$.get('table-filtered', {level: level}, function(result){
+				$.get('table-filtered', {level: level, cat: cat}, function(result){
+
+					// console.log('cat clicked - level is selected' )
+
+
 					$('.col-md-10').html(result)
 				})
 			}
 			else{
 				$.get('practice-shots', function(result){
-					$('.col-md-10').html(result)
+
+					// console.log('cat clicked - no level and cat, render practiceshots page')
+
+
+					$('body').html(result)
 				})
 			}
 		}
@@ -227,7 +242,7 @@ $(function(){
 			cat = $(this).text();
 			level = $('.level-practice.yellow').text();
 
-			console.log(cat, level)
+			// console.log('new cat clicked', level, cat)
 
 			$.get('/table-filtered', {level: level, cat: cat}, function(result){
 				$('.col-md-10').html(result)
