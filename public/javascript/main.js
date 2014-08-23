@@ -57,7 +57,7 @@ $(function(){
 	// variable that holds the category of shots
 	var catOfShots = "";
 
-	// highlight the category of shots 
+	// highlight the Category of Shots in Add Shots page
 	$('.cat-of-shots').click(function(){
 
 		$('.cat-of-shots').removeClass('yellow');
@@ -150,39 +150,52 @@ $(function(){
 
 	// modal mode
 	$('.table').on("click", function(e){
-
 		var selectedTable = $(this).clone();
-
 		$('.modal-body').html(selectedTable);
-
-
 		$("#myModal").modal('toggle')
 	});
 
+	// var level;
+	// var cla;
 
 	$('.level-practice').click(function(){
+		// if it is yellow already, make it not yellow
+
+		// var justClickedLevel = $(this).text()
+		// if ( justClickedLevel===level ) {
+			
+		// }
+
+
+
+
+
 		$('.level-practice').removeClass('yellow');
 		$(this).addClass('yellow');
 
-		// var level = $(this).text();
-		// var cat = $('.cat-practice.yellow').text();
+		var level = $(this).text();
+		var cat = $('.cat-practice.yellow').text();
 
-		// $.get('/table-filtered', {level: level, cat: cat}, function(result){
-		// 	console.log(result)
-		// 	$(document).html(result);
-		// })
-
-
+		$.get('/table-filtered', {level: level, cat: cat}, function(result){
+			$('.col-md-10').html(result)
+		});
 	})
 
 	$('.cat-practice').click(function(){
 		$('.cat-practice').removeClass('yellow');
 		$(this).addClass('yellow');
 
-		// var cat = $(this).text();
-		// var level = $('.level-practice.yellow').text();
+		var cat = $(this).text();
+		var level = $('.level-practice.yellow').text();
 
+		console.log(cat, level)
+
+		$.get('/table-filtered', {level: level, cat: cat}, function(result){
+			$('.col-md-10').html(result)
+		});
 
 	})
+
+
 
 });

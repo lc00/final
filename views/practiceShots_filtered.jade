@@ -1,0 +1,29 @@
+
+- each table, index in tablelist
+	div= table.title
+	div.table(data-title="#{table.title}" data-user="#{user.username}" data-index="#{index}") 
+		img.tableImage(src="/image/pool-table-top-view.png")
+
+		-for i in table.array
+			- var num = i.typeOfBall
+			- var top = i.location.top
+			- var left = i.location.left
+			if num==='0'
+				img.ball-on-table(src="/image/" + "#{num}.svg", style="top: #{top}px; left: #{left}px; height: 34px; width: 34px")
+			else
+				img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
+
+		div.note-practice-shots.margin-left150= table.note
+
+div.modal.fade#myModal(tabindex="-1" role="dialog" ariala-belledby="myModalLabel" aria-hidden="true")
+	div.modal-dialog(style="-webkit-transform: scale(1.5,1.5)")
+		div.modal-content
+			div.modal-header
+				button.close(type="button" data-dismiss="modal")
+					span(aria-hidden="true")&times;
+					span.sr-only Close
+				h4.modal-title#myModalLabel Practice Table
+			div.modal-body
+
+			div.modal-footer
+				button.btn.btn-default(type="button" data-dismiss="modal") close

@@ -124,16 +124,24 @@ var indexController = {
           console.log(error);
         }
         else{
-          var matchedTable = _.where(result.tablelist, {level: level});
 
-          console.log(matchedTable)
+          if(level === '')
+            var matchedTable = _.where(result.tablelist, {category: cat});
 
-          res.render('practiceShots',{
-            user: req.user,
-            tablelist: matchedTable,
-            pageName: "Practice Shots"
-          });
-        }
+          else if (cat === '')
+            var matchedTable = _.where(result.tablelist, {level: level});
+
+          else 
+            var matchedTable = _.where(result.tablelist, {level: level, category: cat});
+
+        console.log(matchedTable)
+
+        res.render('practiceShots_filtered',{
+          user: req.user,
+          tablelist: matchedTable,
+          pageName: "Practice Shots"
+        });
+      }
 
     })
 
