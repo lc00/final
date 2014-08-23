@@ -155,44 +155,84 @@ $(function(){
 		$("#myModal").modal('toggle')
 	});
 
-	// var level;
-	// var cla;
+	var level;
+	var cat;
 
 	$('.level-practice').click(function(){
-		// if it is yellow already, make it not yellow
+		//if it is yellow already, make it not yellow
 
-		// var justClickedLevel = $(this).text()
-		// if ( justClickedLevel===level ) {
-			
-		// }
+		var justClickedLevel = $(this).text();
+
+		console.log(justClickedLevel, level)
+
+		if ( justClickedLevel===level ) {
+			$(this).removeClass('yellow');
+
+			console.log('hi')
+
+			if (cat) {
+				$.get('/table-filtered', {level: level, cat: cat}, function(result){
+					console.log('if')
+					$('.col-md-10').html(result)
+				});				
+			}
+			else{
+				$.get('practice-shots', function(result){
+					console.log('else')
+					$('.col-md-10').html(result)
+				})
+			}
+
+		}	
 
 
 
 
+		else {
+			$('.level-practice').removeClass('yellow');
+			$(this).addClass('yellow');
 
-		$('.level-practice').removeClass('yellow');
-		$(this).addClass('yellow');
+			level = $(this).text();
+			cat = $('.cat-practice.yellow').text();
 
-		var level = $(this).text();
-		var cat = $('.cat-practice.yellow').text();
+			console.log(level, cat)
 
-		$.get('/table-filtered', {level: level, cat: cat}, function(result){
-			$('.col-md-10').html(result)
-		});
+			$.get('/table-filtered', {level: level, cat: cat}, function(result){
+				$('.col-md-10').html(result)
+			});
+		}
 	})
 
 	$('.cat-practice').click(function(){
-		$('.cat-practice').removeClass('yellow');
-		$(this).addClass('yellow');
 
-		var cat = $(this).text();
-		var level = $('.level-practice.yellow').text();
+		if( $(this).text() === cat ){
+			$(this).removeClass('yellow');
 
-		console.log(cat, level)
+			if( level ){
+				$.get('table-filtered', {level: level}, function(result){
+					$('.col-md-10').html(result)
+				})
+			}
+			else{
+				$.get('practice-shots', function(result){
+					$('.col-md-10').html(result)
+				})
+			}
+		}
 
-		$.get('/table-filtered', {level: level, cat: cat}, function(result){
-			$('.col-md-10').html(result)
-		});
+		else{
+			$('.cat-practice').removeClass('yellow');
+			$(this).addClass('yellow');
+
+			cat = $(this).text();
+			level = $('.level-practice.yellow').text();
+
+			console.log(cat, level)
+
+			$.get('/table-filtered', {level: level, cat: cat}, function(result){
+				$('.col-md-10').html(result)
+			});
+		}
 
 	})
 
