@@ -97,6 +97,8 @@ $(function(){
 				});
 			});
 
+			
+
 			// POST to the server with username, form data, and balls on the table info
 			$.post('/newTable', {
 				level: levelOfDifficulty,
@@ -106,6 +108,13 @@ $(function(){
 			}, function(result){
 				console.log(result)
 			});
+
+			//empty form's input fields
+			$('.level').removeClass('yellow');
+			$('.cat-of-shots').removeClass('yellow');
+			$('.table img').slice(1).remove();
+			$('#title').val('');
+			$('#note').val('');
 
 	});
 
@@ -251,6 +260,15 @@ $(function(){
 
 	})
 
+	// $('.clear-selections').click(function(e){
+	//  e.preventDefault()
 
+	// 	console.log('clear button clicked')
+	// 	$('.level-practice').removeClass('yellow');
+	// 	$('.cat-practice').removeClass('yellow');
+
+
+
+	// })
 
 });
