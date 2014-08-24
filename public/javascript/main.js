@@ -106,12 +106,13 @@ $(function(){
 				form_data: formData, 
 				array: JSON.stringify(arrayOfBalls) 
 			}, function(result){
-				console.log(result)
+				// console.log(result)
 			});
 
 			//empty form's input fields
 			$('.level').removeClass('yellow');
 			$('.cat-of-shots').removeClass('yellow');
+			$('.ball').removeClass('border');
 			$('.table img').slice(1).remove();
 			$('#title').val('');
 			$('#note').val('');
@@ -167,6 +168,7 @@ $(function(){
 	var level = '';
 	var cat = '';
 
+	// when Level of Difficulty is clicked on Practice Shots page
 	$('.level-practice').click(function(){
 		//if it is yellow already, make it not yellow
 
@@ -216,6 +218,7 @@ $(function(){
 		}
 	})
 
+	// when Category of Shots is clicked on Practice Shots page
 	$('.cat-practice').click(function(){
 
 		if( $(this).text() === cat ){
@@ -260,15 +263,6 @@ $(function(){
 
 	})
 
-	// $('.clear-selections').click(function(e){
-	//  e.preventDefault()
-
-	// 	console.log('clear button clicked')
-	// 	$('.level-practice').removeClass('yellow');
-	// 	$('.cat-practice').removeClass('yellow');
-
-
-
-	// })
+	
 
 });
