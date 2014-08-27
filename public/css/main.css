@@ -124,3 +124,11 @@ body{
 	top: 250px;
 
 }
+
+.level-practice:hover, .cat-practice:hover {
+	background-color: yellow;
+}
+
+.level:hover, .cat-of-shots:hover{
+	background-color: yellow;
+}

@@ -160,6 +160,9 @@ $(function(){
 
 	// modal mode on Practice Shots page
 	$('.table').on("click", function(e){
+
+		console.log("hi")
+
 		var selectedTable = $(this).clone();
 		$('.modal-body').html(selectedTable);
 		$("#myModal").modal('toggle')
