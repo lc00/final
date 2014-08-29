@@ -37,13 +37,34 @@ body.margin-top100
 						//- else display sign in link @ top right corner
 						div.navbar-text.navbar-right
 							a(id="sign-in" href="/auth/login") Sign In
+	div.container-fluid
+		div.row
+			div.col-md-2.text-center
+				h3.font-size30 Level of Difficulty
+				- for (var i = 1; i < 13; i++)
+					h4.font-size20.level #{i}
 
-	block content
+				h3.font-size30 Category of Shots
+				h4.font-size20.cat 8 ball
+				h4.font-size20.cat 9 ball
+				h4.font-size20.cat 10 ball
+				h4.font-size20.cat Straight pool
+				h4.font-size20.cat Single shot
+				h4.font-size20.cat Multiple Shots
+				h4.font-size20.cat Position shots
+				
+				a.btn.btn-default.btn-lg(href='practice-shots' style="color: green"): h4 Clear Selections
+
+			block content
 
 	script(type='text/javascript', src="/javascript/jquery-2.1.1.min.js")
 	script(type='text/javascript', src="/javascript/TweenMax.min.js")		
 	script(type='text/javascript', src="/javascript/bootstrap.min.js")
+	script(type='text/javascript', src="/javascript/handlebars-v1.3.0.js")
+
+	script(type='text/javascript', src="/javascript/practice.js")
 	script(type='text/javascript', src="/javascript/main.js")
 
+	block scripts
 
 	

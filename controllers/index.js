@@ -93,28 +93,28 @@ var indexController = {
     });
 
   },
+  // practiceShots: function(req, res){
+
+  //   var username = req.user.username;
+
+  //   User.findOne({username: username}, function(error, result){
+  //     if(error){
+  //       console.log(error);
+  //     }
+  //     else{
+  //       // console.log('practiceshots page', result.tablelist)
+
+  //       res.render('practiceShots',{
+  //         user: req.user,
+  //         tablelist: result.tablelist,
+  //         pageName: "Practice Shots"
+  //       });
+  //     }
+
+  //   })
+
+  // },
   practiceShots: function(req, res){
-
-    var username = req.user.username;
-
-    User.findOne({username: username}, function(error, result){
-      if(error){
-        console.log(error);
-      }
-      else{
-        // console.log('practiceshots page', result.tablelist)
-
-        res.render('practiceShots',{
-          user: req.user,
-          tablelist: result.tablelist,
-          pageName: "Practice Shots"
-        });
-      }
-
-    })
-
-  },
-  tableFiltered: function(req, res){
     var username = req.user.username;
     var level = req.query.level;
     var cat = req.query.cat;
@@ -151,7 +151,9 @@ var indexController = {
 
           }
 
-        res.render('practiceShots_filtered',{
+          console.log(matchedTable)
+
+        res.send({
           user: req.user,
           tablelist: matchedTable,
           pageName: "Practice Shots"

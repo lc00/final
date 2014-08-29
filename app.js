@@ -97,7 +97,7 @@ app.post('/newTable', indexController.newTable);
 // Get request for viewing the practice-shots page
 app.get('/practice-shots', indexController.practiceShots);
 
-app.get('/table-filtered', indexController.tableFiltered);
+// app.get('/table-filtered', indexController.tableFiltered);
 
 
 
